@@ -1,10 +1,14 @@
 
 /**
- * Write a description of class House here.
+ * This class creates a house object that acts as a stopping point for the player when delivering pizza
+
+.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Ellen Li)
+ * @version (May 8, 2026)
  */
-public class House
+public class House extends Location
 {
+    //declare instance variables
+    
 }
