@@ -17,5 +17,19 @@ public class Driver
         
     }
     
+    //create a method to run the main logic of the game
+    public void run(){
+        
+    }
     
+    //create a method to reset the game
+    public void reset(){
+        
+    }
+    
+    
+    //create a method to update the game time
+    public void updateTime(){
+        
+    }
 }
