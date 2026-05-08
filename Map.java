@@ -1,10 +1,14 @@
 
 /**
- * Write a description of class Map here.
+ * This class handles the generation of the map and holds this data to be accessed later.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Domero Omoigbedi)
+ * @version (5/8/2026)
  */
 public class Map
 {
+    
+    
+    
+    
 }
