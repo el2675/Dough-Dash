@@ -7,6 +7,34 @@
  */
 public class Player
 {
+    //Declare variables of type byte to hold the location relevant coordinates and location info of the player
+    byte bytX, bytY, bytLocation;
+    
+    //Declare variables of type byte to hold players relevant score information such as completed deliveries and overall score
+    byte bytNumDeliveries, bytScore;
+    
+    
+    //This is a constructor for the player class
+    Player(byte x, byte y, byte deliveries, byte score)
+    {
+        
+    }
+
+    
+    //Returns if the player has won (they win if they have made all their deliveries and are at the store)
+    public boolean checkWin()
+    {
+        //temporary return
+        return false;
+    }
+    
+    
+    //Updates the player’s location and X and Y coordinates
+
+    public void move()
+    {
+        //go do map
+    }
     
     
     
