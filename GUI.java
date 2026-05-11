@@ -50,6 +50,15 @@ public class GUI extends JFrame implements ActionListener
         
         
         
+        
+        
+        
+        //draw rectangle for houses
+        fillRect(x, y, 15, 15);
+        
+        //draw line between connected houses
+        drawLine(x1, y1, x, y);
+        
         //create a button for reset
         JButton replay = new JButton("Play Again");
         replay.add(rerun);
@@ -62,6 +71,40 @@ public class GUI extends JFrame implements ActionListener
     public void onCLick(ActionEvent e){
         //check if the house was waiting for order
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //check if houses are connected
+        //save the current house for comparison, possibly with a 2d array that stores the location, and the x and y coordinates
+        /*if(arr.[i][1] == x && arr[i][2] == y)
+        {
+            byte index = i;
+        }
+        
+        use locations arraylist:
+        Location temp = Locations.get(i);
+        for loop to loop through locations to check connection
+        for (byte i = 0; i < connectedLocation(); i++){
+            if (currentLocation == connectedLocations(i)){
+                do something
+            }
+        }
+            */
     }
     
     
