@@ -7,4 +7,11 @@
  */
 public class Main
 {
+    public static void main(String args[]){
+        //create a driver object
+        Driver driver = new Driver();
+        
+        //run the driver
+        driver.run();
+    }
 }

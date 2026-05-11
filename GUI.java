@@ -36,11 +36,43 @@ public class GUI extends JFrame implements ActionListener
         }
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //create a button for reset
+        JButton replay = new JButton("Play Again");
+        replay.add(rerun);
+        this.add(replay);
+        
     }
     
     //create method for action listener
+    @Override
     public void onCLick(ActionEvent e){
         //check if the house was waiting for order
         
     }
+    
+    
+    
+    
+    
+    //create a method to rerun the game
+    @Override
+    public void rerun(ActionEvent e){
+        //run the reset method
+        driver.reset();
+    }
+    
 }
