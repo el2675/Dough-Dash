@@ -17,27 +17,27 @@ public class Player
     //This is a constructor for the player class
     Player(byte x, byte y, byte deliveries, byte score)
     {
-        
-        
-        
+        this.bytLocation = bytLocation;
+        this.bytNumDeliveries = bytNumDeliveries;
+        this.bytScore = bytScore;
+        this.bytX = bytX;
+         this.bytY = bytY;
     }
 
     
     //Returns if the player has won (they win if they have made all their deliveries and are at the store)
     public boolean checkWin()
     {
-        //temporary return
-        return false;
+        return bytNumDeliveries == 0 && bytLocation == 0;
     }
     
     
     //Updates the player’s location and X and Y coordinates
-
-    public void move()
+    public void move(byte bytLocation, byte bytX, byte bytY)
     {
-        //go do map
+        this.bytLocation = bytLocation;
+        this.bytX = bytX;
+        this.bytY = bytY;
     }
-    
-    
-    
 }
+    
