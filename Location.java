@@ -35,6 +35,11 @@ public class Location
     void connectLocations(Map map){
         //add connections based on the name
         switch(this.strName){
+            case "Store":
+                //add the connections
+                this.connectedLocations.add(new Connection((byte)1, (byte)2));
+                this.connectedLocations.add(new Connection((byte)10, (byte)4));
+                break;
             case "A":
                 //add the connections
                 this.connectedLocations.add(new Connection((byte)2, (byte)7));
