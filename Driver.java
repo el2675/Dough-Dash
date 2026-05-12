@@ -19,6 +19,8 @@ public class Driver
     
     //create a method to run the main logic of the game
     public void run(){
+        //create a map with twelve locations
+        Map map = new Map((byte)12);
         
     }
     
