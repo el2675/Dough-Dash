@@ -51,8 +51,8 @@ public class Map
     //This method will iterate through locations and assign each location x and y coordinates
     public void placeLocations()
     {
-        byte bytX = 50;
-        byte bytY = 50;
+        byte bytX = 10;
+        byte bytY = 10;
     
         //loop through every location
         for(Location location : locations)
@@ -62,27 +62,24 @@ public class Map
             location.bytYCoordinate = bytY;
     
             //move next location over
-            bytX += 75;
+            bytX += 15;
     
             //if x gets too large go to next row
-            if(bytX > 400)
+            if(bytX > 80)
             {
-                bytX = 50;
-                bytY += 75;
+                bytX = 10;
+                bytY += 15;
             }
         }
     }
 
-
-    
-    
     //This method will iterate through locations and call connectLocations for each
     public void connectLocations()
     {
         //Using a for each loop to go through every location
         for(Location location : locations)
         {
-            //initialize the arraylist first
+            //initialize the arraylist
             location.connectedLocations = new ArrayList<Connection>();
     
             //call connectLocations method from Location class
@@ -90,5 +87,4 @@ public class Map
         }
     }
 
-       
 }
