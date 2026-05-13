@@ -17,13 +17,16 @@ public class Player
     //This is a constructor for the player class
     Player(byte x, byte y, byte deliveries, byte score)
     {
-        this.bytLocation = bytLocation;
-        this.bytNumDeliveries = bytNumDeliveries;
-        this.bytScore = bytScore;
-        this.bytX = bytX;
-         this.bytY = bytY;
+        this.bytX = x;
+        this.bytY = y;
+        this.bytNumDeliveries = deliveries;
+        this.bytScore = score;
+    
+        //start at store location
+        this.bytLocation = 0;
     }
 
+    
     
     //Returns if the player has won (they win if they have made all their deliveries and are at the store)
     public boolean checkWin()
