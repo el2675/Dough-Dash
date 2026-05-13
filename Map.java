@@ -47,6 +47,8 @@ public class Map
         return (byte)locations.size();
     }
     
+    
+    //This method will iterate through locations and assign each location x and y coordinates
     public void placeLocations()
     {
         byte bytX = 50;
