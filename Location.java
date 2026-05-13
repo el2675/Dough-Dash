@@ -4,8 +4,8 @@
  * the data and methods to handle being a location on
  * the map.
  *
- * Kevin Sander
- * May 11th, 2026
+ * @author (Kevin Sander)
+ * @version (May 11th, 2026)
  */
 
 //import array list
@@ -104,7 +104,6 @@ public class Location
             default:
                 //debug print
                 System.out.println("Something went wrong.");
-            
         }
     }
     

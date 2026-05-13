@@ -64,7 +64,7 @@ public class GUI extends JFrame
     }
     
     //create method for action listener
-    public void onCLick(ActionEvent e){
+    public void onClick(ActionEvent e){
         //check if the house was waiting for order
         
         //check if the house was waiting for order
