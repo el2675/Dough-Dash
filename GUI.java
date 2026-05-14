@@ -23,7 +23,7 @@ public class GUI extends JFrame
         this.setTitle("Dough Dash");
         
         //set the frame size
-        this.setSize(600, 400);
+        this.setSize(1200, 800);
     
         //set layout
         this.setLayout(null);
