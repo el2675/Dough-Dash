@@ -16,7 +16,7 @@ public class Player
     
     
     //This is a constructor for the player class
-    Player(byte x, byte y, byte deliveries, byte score)
+    Player(byte x, byte y, byte deliveries, short score)
     {
         this.bytX = x;
         this.bytY = y;

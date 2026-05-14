@@ -19,7 +19,7 @@ import java.awt.image.*;
 import java.util.ArrayList;
 
 public class GUI extends JFrame
-{
+{   
     //create a constructor for the GUI
     GUI(Map map, Driver driver, Player player){
         //title the JFrame
