@@ -54,11 +54,13 @@ public class GUI extends JFrame
         //add the player icon to the frame
         playerIcon.setBounds(20, 30, 400, 200);
         
+        this.frame.add(playerIcon);
+        
         
         //player score 
-        JLabel score = new JLabel(Short.toString(player.shrScore));
+        JLabel score = new JLabel("Score: "+ Short.toString(player.shrScore));
         
-        score.setBounds(40, 40, 600, 600);
+        score.setBounds(1100, 10, 50, 50);
         
         
         this.frame.add(score);
