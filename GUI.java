@@ -56,7 +56,7 @@ public class GUI extends JFrame
         
         
         //player score 
-        JLabel score = new JLabel(Byte.toString(player.bytScore));
+        JLabel score = new JLabel(Short.toString(player.shrScore));
         
         score.setBounds(40, 40, 600, 600);
         

@@ -78,7 +78,7 @@ public class Driver
         player.move(bytIndex, clickedLocation.bytXCoordinate, clickedLocation.bytYCoordinate);
         
         //update player score
-        player.bytScore += clickedLocation.connectedLocations.get(bytIndexConnected).bytTravelTime;
+        player.shrScore += clickedLocation.connectedLocations.get(bytIndexConnected).bytTravelTime;
         
         //check if the clicked location
         //is a house waiting for and order
