@@ -15,21 +15,23 @@ import java.awt.event.*;
 //import java awt image for icons
 import java.awt.image.*;
 
-//import arraylist
-import java.util.ArrayList;
 
 public class GUI extends JFrame
 {
+    JFrame frame;
+    
     //create a constructor for the GUI
     GUI(Map map, Driver driver, Player player){
+        frame = new JFrame();
+        
         //title the JFrame
-        this.setTitle("Dough Dash");
+        this.frame.setTitle("Dough Dash");
         
         //set the frame size
-        this.setSize(1200, 800);
+        this.frame.setSize(1200, 800);
     
         //set layout
-        this.setLayout(null);
+        this.frame.setLayout(null);
         
                 
         
@@ -48,8 +50,6 @@ public class GUI extends JFrame
         ImageIcon icon = new ImageIcon("D:/Ellen/GroupProject/pizza guy.jpg");
         JLabel playerIcon = new JLabel(icon);
         
-        //set image icon size
-        playerIcon.setSize(20, 30);
         
         //add the player icon to the frame
         playerIcon.setBounds(20, 30, 400, 200);
@@ -58,16 +58,18 @@ public class GUI extends JFrame
         //player score 
         JLabel score = new JLabel(Byte.toString(player.bytScore));
         
-        score.setLocation(600, 600);
+        score.setBounds(40, 40, 600, 600);
         
         
-        this.add(score);
+        this.frame.add(score);
         
         //create the buttons
         createButtons(map, player);
         
+        
+        
         //set visibility
-        this.setVisible(true);
+        this.frame.setVisible(true);
         
     }
     
@@ -149,7 +151,7 @@ public class GUI extends JFrame
                 int y2 = map.getLocation(index).bytYCoordinate;
                 
                 //draw line between coordinates of current location and connected location
-                this.add(new LineDrawing(x, y, x2, y2));
+                this.frame.add(new LineDrawing(x, y, x2, y2));
             }
                 
             //store coordinates of previous location to draw a line between them
@@ -162,7 +164,7 @@ public class GUI extends JFrame
              */
             
             //add buttons to the frame
-            this.add(btn);
+            this.frame.add(btn);
             
         }
     }
