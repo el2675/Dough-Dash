@@ -12,6 +12,9 @@ import javax.swing.*;
 //import java awt for action listener
 import java.awt.event.*;
 
+//import java awt image for icons
+import java.awt.image.*;
+
 //import arraylist
 import java.util.ArrayList;
 
@@ -28,40 +31,35 @@ public class GUI extends JFrame
         //set layout
         this.setLayout(null);
         
-        //set visibility
-        this.setVisible(true);        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
                 
         
-        //create a button for reset
-        JButton replay = new JButton("Play Again");
-        replay.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                driver.reset();
-            }
-        });
-        this.add(replay);
         
+        // //create a button for reset
+        // JButton replay = new JButton("Play Again");
+        // replay.addActionListener(new ActionListener(){
+            // @Override
+            // public void actionPerformed(ActionEvent e){
+                // driver.reset();
+            // }
+        // });
+        // this.add(replay);
+        
+        //create player icon and label
+        ImageIcon icon = new ImageIcon("D:/Ellen/pizza guy.jpg");
+        JLabel playerIcon = new JLabel(icon);
+        
+        //set image icon size
+        playerIcon.setSize(20, 30);
+        
+        //add the player icon to the frame
+        playerIcon.setLocation(400, 200);
         
         //create the buttons
         createButtons(map, player);
+        
+        //set visibility
+        this.setVisible(true);
+        
     }
     
     //create method for action listener
@@ -77,18 +75,6 @@ public class GUI extends JFrame
         }
         
         //change to display that house was visited
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         
@@ -119,13 +105,7 @@ public class GUI extends JFrame
         
         //create a button for each location
         for(byte i = 0; i < map.numLocations(); i++){
-            // //create a JButton 
-            // buttons.add(new JButton());
-            
-            // //set sizes of buttons
-            // buttons.get(i).setSize(50, 50);
-                        
-            
+                   
             //find the current location
             Location location = map.getLocation(i);
             
