@@ -10,7 +10,7 @@
 public class House extends Location
 {
     //declare instance variables
-    boolean bolWaitingForOrder;
+    boolean bolWaiting;
     
     //constructor
     House(String n){
