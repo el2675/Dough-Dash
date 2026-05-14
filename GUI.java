@@ -52,7 +52,7 @@ public class GUI extends JFrame
         
         
         //add the player icon to the frame
-        playerIcon.setBounds(20, 30, 400, 200);
+        playerIcon.setBounds(500, 500, 50, 50);
         
         this.frame.add(playerIcon);
         
@@ -62,8 +62,8 @@ public class GUI extends JFrame
         
         score.setBounds(1100, 10, 50, 50);
         
-        
         this.frame.add(score);
+        
         
         //create the buttons
         createButtons(map, player);
