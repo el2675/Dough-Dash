@@ -16,8 +16,10 @@ import java.awt.event.*;
 import java.awt.image.*;
 
 
-public class GUI {
+public class GUI extends JFrame
+{
     JFrame frame;
+    
     //create a constructor for the GUI
     GUI(Map map, Driver driver, Player player){
         frame = new JFrame();
@@ -52,12 +54,13 @@ public class GUI {
         //add the player icon to the frame
         playerIcon.setBounds(20, 30, 400, 200);
         
+        this.frame.add(playerIcon);
+        
         
         //player score 
-        JLabel score = new JLabel(Short.toString(player.shrScore));
-        
-        score.setBounds(40, 40, 600, 600);
-        
+        JLabel score = new JLabel("Score: "+ Short.toString(player.shrScore));
+    
+        score.setBounds(1100, 10, 50, 50);
         
         this.frame.add(score);
         
