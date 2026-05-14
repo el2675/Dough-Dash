@@ -10,7 +10,7 @@
 public class House extends Location
 {
     //declare instance variables
-    boolean bolWaiting;
+    boolean bolWaitingForOrder;
     
     //constructor
     House(String n){
@@ -18,12 +18,12 @@ public class House extends Location
         super(n, "");
         
         //set instance variable
-        this.bolWaiting = true;
+        this.bolWaitingForOrder = true;
     }
     
     //set the waiting variables
     public void setWait(){
-        this.bolWaiting = false;
+        this.bolWaitingForOrder = false;
         
     }
 
