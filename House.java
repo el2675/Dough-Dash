@@ -18,12 +18,12 @@ public class House extends Location
         super(n, "");
         
         //set instance variable
-        this.bolWaitingForOrder = true;
+        this.bolWaiting = true;
     }
     
     //set the waiting variables
     public void setWait(){
-        this.bolWaitingForOrder = false;
+        this.bolWaiting = false;
         
     }
 

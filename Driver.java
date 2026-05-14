@@ -90,7 +90,7 @@ public class Driver
             
             //update the house such that it
             //is no longer waiting for an order
-            ((House)clickedLocation).bolWaiting = false
+            ((House)clickedLocation).bolWaiting = false;
         }
         
         //check for win
