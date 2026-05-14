@@ -10,5 +10,21 @@
 public class House extends Location
 {
     //declare instance variables
+    boolean bolWaiting;
     
+    //constructor
+    House(String n){
+        //call super constructor
+        super(n, "");
+        
+        //set instance variable
+        this.bolWaiting = true;
+    }
+    
+    //set the waiting variables
+    public void setWait(){
+        this.bolWaiting = false;
+        
+    }
+
 }
