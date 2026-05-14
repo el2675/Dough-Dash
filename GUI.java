@@ -45,7 +45,7 @@ public class GUI extends JFrame
         // this.add(replay);
         
         //create player icon and label
-        ImageIcon icon = new ImageIcon("D:/Ellen/pizza guy.jpg");
+        ImageIcon icon = new ImageIcon("pizza guy.jpg");
         JLabel playerIcon = new JLabel(icon);
         
         //set image icon size

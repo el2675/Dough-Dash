@@ -11,7 +11,8 @@ public class Player
     byte bytX, bytY, bytLocation;
     
     //Declare variables of type byte to hold players relevant score information such as completed deliveries and overall score
-    byte bytNumDeliveries, bytScore;
+    byte bytNumDeliveries;
+    short shrScore;
     
     
     //This is a constructor for the player class
@@ -20,7 +21,7 @@ public class Player
         this.bytX = x;
         this.bytY = y;
         this.bytNumDeliveries = deliveries;
-        this.bytScore = score;
+        this.shrScore = score;
     
         //start at store location
         this.bytLocation = 0;
