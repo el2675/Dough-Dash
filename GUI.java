@@ -45,14 +45,23 @@ public class GUI extends JFrame
         // this.add(replay);
         
         //create player icon and label
-        ImageIcon icon = new ImageIcon("D:/Ellen/pizza guy.jpg");
+        ImageIcon icon = new ImageIcon("D:/Ellen/GroupProject/pizza guy.jpg");
         JLabel playerIcon = new JLabel(icon);
         
         //set image icon size
         playerIcon.setSize(20, 30);
         
         //add the player icon to the frame
-        playerIcon.setLocation(400, 200);
+        playerIcon.setBounds(20, 30, 400, 200);
+        
+        
+        //player score 
+        JLabel score = new JLabel(Byte.toString(player.bytScore));
+        
+        score.setLocation(600, 600);
+        
+        
+        this.add(score);
         
         //create the buttons
         createButtons(map, player);
