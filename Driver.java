@@ -30,7 +30,7 @@ public class Driver
         Player player = new Player(map.getLocation((byte)0).bytXCoordinate, map.getLocation((byte)0).bytXCoordinate, (byte)3, (byte)0);
         
         //create the general user interface (GUI)
-        GUI gui = new GUI(map, this);
+        GUI gui = new GUI(map, this, player);
     }
     
     //handles button clicks, this usually results in a move
@@ -82,7 +82,7 @@ public class Driver
         
         //check if the clicked location
         //is a house waiting for and order
-        if(clickedLocation instanceof House && ((House)clickedLocation).bolWaitingForOrder){
+        if(clickedLocation instanceof House && ((House)clickedLocation).bolWaiting){
             player.bytNumDeliveries--;
         }
         
