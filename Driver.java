@@ -83,7 +83,14 @@ public class Driver
         //check if the clicked location
         //is a house waiting for and order
         if(clickedLocation instanceof House && ((House)clickedLocation).bolWaiting){
+            //decrease player's number of
+            //deliveries to relfect that
+            //they just made a delivery
             player.bytNumDeliveries--;
+            
+            //update the house such that it
+            //is no longer waiting for an order
+            ((House)clickedLocation).bolWaiting = false
         }
         
         //check for win
