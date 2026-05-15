@@ -13,12 +13,12 @@ public class House extends Location
     boolean bolWaiting;
     
     //constructor
-    House(String n, Byte index){
+    House(String n, Byte index, Boolean waiting){
         //call super constructor
         super(n, "", index);
         
         //set instance variable
-        this.bolWaiting = true;
+        this.bolWaiting = waiting;
     }
     
     //set the waiting variables

@@ -18,17 +18,17 @@ public class Map
           locations.add(new Store("Store", (byte)0));
           
           //add the houses to the arraylist 
-          locations.add(new House("A", (byte)1));
-          locations.add(new House("B", (byte)2));
-          locations.add(new House("C", (byte)3));
-          locations.add(new House("D", (byte)4));
-          locations.add(new House("E", (byte)5));
-          locations.add(new House("F", (byte)6));
-          locations.add(new House("G", (byte)7));
-          locations.add(new House("H", (byte)8));
-          locations.add(new House("I", (byte)9));
-          locations.add(new House("J", (byte)10));
-          locations.add(new House("K", (byte)11));
+          locations.add(new House("A", (byte)1, false));
+          locations.add(new House("B", (byte)2, false));
+          locations.add(new House("C", (byte)3, true));
+          locations.add(new House("D", (byte)4, false));
+          locations.add(new House("E", (byte)5, false));
+          locations.add(new House("F", (byte)6, true));
+          locations.add(new House("G", (byte)7, false));
+          locations.add(new House("H", (byte)8, false));
+          locations.add(new House("I", (byte)9, false));
+          locations.add(new House("J", (byte)10, true));
+          locations.add(new House("K", (byte)11, false));
     
           placeLocations();
           connectLocations();
