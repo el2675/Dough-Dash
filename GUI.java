@@ -28,8 +28,6 @@ public class GUI extends JFrame
     
     //create a constructor for the GUI
     GUI(Map map, Driver driver, Player player){
-        // frame = new JFrame();
-        
         //title the JFrame
         this.setTitle("Dough Dash");
         
@@ -40,6 +38,8 @@ public class GUI extends JFrame
         this.setLayout(null);
         
         
+        //create a new custom colour
+        Color delivered = new Color(213, 255, 171);
         
         //create layered pane to layer the components properly
         JLayeredPane layers = this.getLayeredPane();
@@ -63,7 +63,7 @@ public class GUI extends JFrame
         
         
         //create the buttons
-        createButtons(map, player);
+        createButtons(map, player, driver, delivered);
         
         
         //create the player icon
@@ -78,14 +78,15 @@ public class GUI extends JFrame
     }
     
     //create method for action listener
-    public void onClick(Location location, Player player, short x, short y){
+    public void onClick(Location location, Player player, short x, short y, JButton btn, Map map, Driver driver, Color delivered){
         //check if the house was waiting for order
+        
         
         //check the player's current location
         
         
         //move player to the location if the current location is connected to the destination
-        player.move((byte)0, (byte)x, (byte)y);
+        driver.move(location, player, map);
         this.playerIcon.setLocation(x, y);
         
         //update the waiting for order variable
@@ -94,7 +95,10 @@ public class GUI extends JFrame
         }
         
         //change to display that house was visited
-        
+        if (player.shrX == location.shrXCoordinate && player.shrY == location.shrYCoordinate){
+            //set the background color
+            btn.setBackground(delivered);
+        }
         
     }
     
@@ -124,7 +128,7 @@ public class GUI extends JFrame
     
     
     //create method to make buttons
-    public void createButtons(Map map, Player player){
+    public void createButtons(Map map, Player player, Driver driver, Color delivered){
         //create a button for each location
         for(byte i = 0; i < map.numLocations(); i++){
                    
@@ -174,7 +178,7 @@ public class GUI extends JFrame
                 @Override
                 public void actionPerformed(ActionEvent e){
                     //call on-click method
-                    onClick(location, player, (short)(x + 5), (short)(y + 5));
+                    onClick(location, player, (short)(x + 5), (short)(y + 5), btn, map, driver, delivered);
                 }
             });
             
