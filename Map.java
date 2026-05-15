@@ -51,8 +51,8 @@ public class Map
     //This method will iterate through locations and assign each location x and y coordinates
     public void placeLocations()
     {
-        short shrX = 10;
-        short shrY = 10;
+        short shrX = 100;
+        short shrY = 100;
     
         //loop through every location
         for(Location location : locations)
@@ -62,13 +62,13 @@ public class Map
             location.shrYCoordinate = shrY;
     
             //move next location over
-            shrX += 15;
+            shrX += 150;
     
             //if x gets too large go to next row
-            if(shrX > 80)
+            if(shrX > 1000)
             {
-                shrX = 10;
-                shrY += 15;
+                shrX = 100;
+                shrY += 150;
             }
         }
     }
