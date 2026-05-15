@@ -6,6 +6,7 @@
  * @version (May 14, 2026)
  */
 
+
 //import java swing for GUI
 import javax.swing.*;
 
@@ -15,14 +16,16 @@ import java.awt.*;
 public class LineDrawing extends JPanel
 {
     //create instance variables
-    int x1, y1, x2, y2;
+    Map map;
     
-    LineDrawing(int x1, int y1, int x2, int y2){
-        //set the variables
-        this.x1 = x1;
-        this.y1 = y1;
-        this.x2 = x2;
-        this.y2 = y2;
+    LineDrawing(Map map){
+        //set the map instance variable
+        this.map = map;
+        
+        //set up the panel
+        this.setLayout(null);
+        this.setOpaque(true);
+        this.setBackground(Color.WHITE);
         
     }
     
@@ -36,8 +39,24 @@ public class LineDrawing extends JPanel
         //set the line color
         g.setColor(Color.BLACK);
         
-        //draw the line
-        g.drawLine(x1, y1, x2, y2);
+        //loop through locations to draw lines between connected locations
+        for(byte i = 0; i < map.numLocations(); i++){
+            //create temporary location object to hold current location
+            Location currentLocation = map.getLocation(i);
+            
+            //inner for loop to loop through the current locations connections
+            for(byte j = 0; j < currentLocation.connectedLocations.size(); j++){
+                //find index of connected location
+                byte bytDestination = map.getLocation(i).connectedLocations.get(j).bytIndex;
+                
+                Location destination = map.getLocation(bytDestination);
+                
+                //draw a line betwen the buttons
+                g.drawLine(currentLocation.shrXCoordinate + 25, currentLocation.shrYCoordinate + 25,
+                destination.shrXCoordinate + 25, destination.shrYCoordinate + 25);
+
+            }
+        }
     }
 
 }
