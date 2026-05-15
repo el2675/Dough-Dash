@@ -8,8 +8,8 @@
 public class Store extends Location
 {
     //create constructor for the store object
-    Store(String n){
+    Store(String n, Byte index){
         //call the super method's constructor and pass in the string name parameter
-        super(n, "");
+        super(n, "", index);
     }
 }

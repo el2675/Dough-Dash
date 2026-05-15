@@ -15,20 +15,20 @@ public class Map
           locations = new ArrayList<Location>();
           
           //add a new store to the map
-          locations.add(new Store("Store"));
+          locations.add(new Store("Store", (byte)0));
           
           //add the houses to the arraylist 
-          locations.add(new House("A"));
-          locations.add(new House("B"));
-          locations.add(new House("C"));
-          locations.add(new House("D"));
-          locations.add(new House("E"));
-          locations.add(new House("F"));
-          locations.add(new House("G"));
-          locations.add(new House("H"));
-          locations.add(new House("I"));
-          locations.add(new House("J"));
-          locations.add(new House("K"));
+          locations.add(new House("A", (byte)1));
+          locations.add(new House("B", (byte)2));
+          locations.add(new House("C", (byte)3));
+          locations.add(new House("D", (byte)4));
+          locations.add(new House("E", (byte)5));
+          locations.add(new House("F", (byte)6));
+          locations.add(new House("G", (byte)7));
+          locations.add(new House("H", (byte)8));
+          locations.add(new House("I", (byte)9));
+          locations.add(new House("J", (byte)10));
+          locations.add(new House("K", (byte)11));
     
           placeLocations();
           connectLocations();

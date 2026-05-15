@@ -20,12 +20,15 @@ public class Location
     short shrXCoordinate;
     short shrYCoordinate;
     
+    byte bytIndex;
+    
     private String strAddress;
     
     //define constructor
-    Location(String n, String address){
+    Location(String n, String address, Byte index){
         this.strName = n;
         this.strAddress = address;
+        this.bytIndex = index;
     }
     
     //define method to connect current location

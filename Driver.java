@@ -34,7 +34,7 @@ public class Driver
     }
     
     //handles button clicks, this usually results in a move
-    public void move(byte bytIndex, Player player, Map map){
+    public void move(Location clickedLocation, Player player, Map map){
         //checking if the clicked location is connected
         //to the player's location
         
@@ -52,7 +52,7 @@ public class Driver
         for(byte i = 0; i < playerLocation.connectedLocations.size(); i++){
             //check if current connection's index
             //matchs that of the clicked location
-            if(playerLocation.connectedLocations.get(i).bytIndex == bytIndex){
+            if(playerLocation.connectedLocations.get(i).bytIndex == clickedLocation.bytIndex){
                 //set bolConnected to reflect
                 //that the connection was found
                 bytIndexConnected = i;
@@ -70,12 +70,8 @@ public class Driver
             return;
         }
         
-        //declare and initialize variable to
-        //store the clicked location
-        Location clickedLocation = map.getLocation(bytIndex);
-        
         //move player
-        player.move(bytIndex, clickedLocation.shrXCoordinate, clickedLocation.shrYCoordinate);
+        player.move(clickedLocation.bytIndex, clickedLocation.shrXCoordinate, clickedLocation.shrYCoordinate);
         
         //update player score
         player.shrScore += clickedLocation.connectedLocations.get(bytIndexConnected).bytTravelTime;

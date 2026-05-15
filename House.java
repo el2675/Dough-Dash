@@ -13,9 +13,9 @@ public class House extends Location
     boolean bolWaiting;
     
     //constructor
-    House(String n){
+    House(String n, Byte index){
         //call super constructor
-        super(n, "");
+        super(n, "", index);
         
         //set instance variable
         this.bolWaiting = true;
