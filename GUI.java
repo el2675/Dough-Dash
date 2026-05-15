@@ -13,73 +13,80 @@ import javax.swing.*;
 import java.awt.event.*;
 
 //import java awt image for icons
-import java.awt.image.*;
+import java.awt.Image;
+
+//import java awt
+import java.awt.*;
 
 
 public class GUI extends JFrame
 {
-    JFrame frame;
+    //declare instance variables
+    // JFrame frame;
+    JLabel playerIcon;
+    JLabel score;
     
     //create a constructor for the GUI
     GUI(Map map, Driver driver, Player player){
-        frame = new JFrame();
+        // frame = new JFrame();
         
         //title the JFrame
-        this.frame.setTitle("Dough Dash");
+        this.setTitle("Dough Dash");
         
         //set the frame size
-        this.frame.setSize(1200, 800);
+        this.setSize(1200, 800);
     
         //set layout
-        this.frame.setLayout(null);
-        
-                
+        this.setLayout(null);
         
         
-        // //create a button for reset
-        // JButton replay = new JButton("Play Again");
-        // replay.addActionListener(new ActionListener(){
-            // @Override
-            // public void actionPerformed(ActionEvent e){
-                // driver.reset();
-            // }
-        // });
-        // this.add(replay);
         
-        //create player icon and label
-        ImageIcon icon = new ImageIcon("D:/Ellen/GroupProject/pizza guy.jpg");
-        JLabel playerIcon = new JLabel(icon);
+        //create layered pane to layer the components properly
+        JLayeredPane layers = this.getLayeredPane();
         
         
-        //add the player icon to the frame
-        playerIcon.setBounds(500, 500, 50, 50);
         
-        this.frame.add(playerIcon);
+        //create and add label for player score 
+        this.score = new JLabel("Score: "+ Short.toString(player.shrScore));
+        this.score.setBounds(20, 20, 1000, 10);
         
+        //add the score label to the layered pane
+        layers.add(score, JLayeredPane.DEFAULT_LAYER);
         
-        //player score 
-        JLabel score = new JLabel("Score: "+ Short.toString(player.shrScore));
+    
+        //draw lines between buttons
+        LineDrawing lines = new LineDrawing(map);
+        lines.setBounds(0, 0, 1200, 800);
         
-
-        this.frame.add(score);
+        //add the lines to a bottom layer
+        layers.add(lines, JLayeredPane.DEFAULT_LAYER);
         
         
         //create the buttons
         createButtons(map, player);
         
         
+        //create the player icon
+        createPlayer();
         
+    
+
         //set visibility
-        this.frame.setVisible(true);
-        
+        this.setVisible(true);
+        this.revalidate();
+        this.repaint();
     }
     
     //create method for action listener
-    public void onClick(Location location, Player player, int x, int y){
+    public void onClick(Location location, Player player, short x, short y){
         //check if the house was waiting for order
-                
-        //move player to the location
+        
+        //check the player's current location
+        
+        
+        //move player to the location if the current location is connected to the destination
         player.move((byte)0, (byte)x, (byte)y);
+        this.playerIcon.setLocation(x, y);
         
         //update the waiting for order variable
         if (location instanceof House){
@@ -89,86 +96,89 @@ public class GUI extends JFrame
         //change to display that house was visited
         
         
-        
-        //check if houses are connected
-        //save the current house for comparison, possibly with a 2d array that stores the location, and the x and y coordinates
-        /*if(arr.[i][1] == x && arr[i][2] == y)
-        {
-            byte index = i;
-        }
-        
-        use locations arraylist:
-        Location temp = Locations.get(i);
-        for loop to loop through locations to check connection
-        for (byte i = 0; i < connectedLocation(); i++){
-            if (currentLocation == connectedLocations(i)){
-                do something
-            }
-        }
-            */
     }
     
+    //create a method to make a player icon
+    public void createPlayer(){
+        //import the image into an icon
+        ImageIcon icon = new ImageIcon("C:/Users/hotdo/Downloads/pizzadelivery.jpg");
+
+        //extract the image
+        Image img = icon.getImage();
+        
+        //scale the image
+        Image scaledImg = img.getScaledInstance(70, 70, Image.SCALE_SMOOTH);
+
+        //create a new icon for the scaled image
+        ImageIcon scaledIcon = new ImageIcon(scaledImg);
+        
+        //set the instance variables for the player icon
+        this.playerIcon = new JLabel(scaledIcon);
+        this.playerIcon.setBounds(500, 500, 70, 70);
+        this.playerIcon.setOpaque(false);
+        
+        //add the player icon to the frame
+        this.getLayeredPane().add(playerIcon, JLayeredPane.MODAL_LAYER);
+        
+    }
     
     
     //create method to make buttons
     public void createButtons(Map map, Player player){
-        //create arraylist of buttons
-        // ArrayList<JButton> buttons = new ArrayList<JButton>();
-        
         //create a button for each location
         for(byte i = 0; i < map.numLocations(); i++){
                    
             //find the current location
             Location location = map.getLocation(i);
             
+            //declare a jbutton 
+            JButton btn;
+            
+            //create icon for store and house
+            ImageIcon icon = new ImageIcon("C:/Users/hotdo/Downloads/house.png");
+            
+            //extract the image
+            Image img = icon.getImage();
+        
+            //scale the image
+            Image scaledImg = img.getScaledInstance(80, 80, Image.SCALE_SMOOTH);
+
+            //create a new icon for the scaled image
+            ImageIcon houseIcon = new ImageIcon(scaledImg);
+            
             //create button
-            JButton btn = new JButton(location.strName);
-                        
+            if(location instanceof House){
+                btn = new JButton(location.strName, houseIcon);
+            }
+            else{
+                btn = new JButton(location.strName);
+            }
             
             //declare coordinate variables to hold the position on the current location
-            int x = location.bytXCoordinate;
-            int y = location.bytYCoordinate;
+            short x = location.shrXCoordinate;
+            short y = location.shrYCoordinate;
             
             //set button position and size on map
-            btn.setBounds(x, y, 50, 50);
+            btn.setBounds(x, y, 80, 80);
             
             //add an on-click action listener to the buttons
             btn.addActionListener(new ActionListener(){
                 @Override
                 public void actionPerformed(ActionEvent e){
                     //call on-click method
-                    onClick(location, player, x, y);
+                    onClick(location, player, (short)(x + 5), (short)(y + 5));
                 }
             });
             
+            //set button background
+            btn.setBackground(Color.WHITE);
             
-            //draw line between connected buttons
-            for (byte j = 0; j < map.getLocation(i).connectedLocations.size(); j++){
-                //find index of connected location
-                byte index = map.getLocation(i).connectedLocations.get(j).bytIndex;
-                
-                //find coordinates of connected location
-                int x2 = map.getLocation(index).bytXCoordinate;
-                int y2 = map.getLocation(index).bytYCoordinate;
-                
-                //draw line between coordinates of current location and connected location
-                this.frame.add(new LineDrawing(x, y, x2, y2));
-            }
-                
-            //store coordinates of previous location to draw a line between them
-            /*
-             * connected locations indexes:
-             * for (byte j = 0; j < map.getLocation(I).connectedLocations.size()){}
-             *     
-             * 
-             * if (map.getLocation(i).connectedLocations(j))
-             */
-            
-            //add buttons to the frame
-            this.frame.add(btn);
+            //add buttons to the layered pane
+            this.getLayeredPane().add(btn, JLayeredPane.PALETTE_LAYER);
             
         }
     }
 
     
 }
+

@@ -27,7 +27,7 @@ public class Driver
         Map map = new Map((byte)12);
         
         //create player at the store with 3 deliveries
-        Player player = new Player(map.getLocation((byte)0).bytXCoordinate, map.getLocation((byte)0).bytXCoordinate, (byte)3, (byte)0);
+        Player player = new Player(map.getLocation((byte)0).shrXCoordinate, map.getLocation((byte)0).shrYCoordinate, (byte)3, (byte)0);
         
         //create the general user interface (GUI)
         GUI gui = new GUI(map, this, player);
@@ -40,7 +40,7 @@ public class Driver
         
         //declare and initialize variable for
         //the player's location
-        Location playerLocation = map.getLocation(player.bytLocation);
+        Location playerLocation = map.getLocation((byte)(player.bytLocation));
         
         //declare and initialize variable to
         //store the index the connected
@@ -75,7 +75,7 @@ public class Driver
         Location clickedLocation = map.getLocation(bytIndex);
         
         //move player
-        player.move(bytIndex, clickedLocation.bytXCoordinate, clickedLocation.bytYCoordinate);
+        player.move(bytIndex, clickedLocation.shrXCoordinate, clickedLocation.shrYCoordinate);
         
         //update player score
         player.shrScore += clickedLocation.connectedLocations.get(bytIndexConnected).bytTravelTime;

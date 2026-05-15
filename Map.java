@@ -51,24 +51,24 @@ public class Map
     //This method will iterate through locations and assign each location x and y coordinates
     public void placeLocations()
     {
-        byte bytX = 10;
-        byte bytY = 10;
+        short shrX = 10;
+        short shrY = 10;
     
         //loop through every location
         for(Location location : locations)
         {
             //assign coordinates
-            location.bytXCoordinate = bytX;
-            location.bytYCoordinate = bytY;
+            location.shrXCoordinate = shrX;
+            location.shrYCoordinate = shrY;
     
             //move next location over
-            bytX += 15;
+            shrX += 15;
     
             //if x gets too large go to next row
-            if(bytX > 80)
+            if(shrX > 80)
             {
-                bytX = 10;
-                bytY += 15;
+                shrX = 10;
+                shrY += 15;
             }
         }
     }

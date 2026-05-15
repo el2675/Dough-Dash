@@ -8,7 +8,7 @@
 public class Player
 {
     //Declare variables of type byte to hold the location relevant coordinates and location info of the player
-    byte bytX, bytY, bytLocation;
+    short shrX, shrY, bytLocation;
     
     //Declare variables of type byte to hold players relevant score information such as completed deliveries and overall score
     byte bytNumDeliveries;
@@ -16,10 +16,10 @@ public class Player
     
     
     //This is a constructor for the player class
-    Player(byte x, byte y, byte deliveries, short score)
+    Player(short x, short y, byte deliveries, short score)
     {
-        this.bytX = x;
-        this.bytY = y;
+        this.shrX = x;
+        this.shrY = y;
         this.bytNumDeliveries = deliveries;
         this.shrScore = score;
     
@@ -37,11 +37,11 @@ public class Player
     
     
     //Updates the player’s location and X and Y coordinates
-    public void move(byte bytLocation, byte bytX, byte bytY)
+    public void move(byte bytLocation, short shrX, short shrY)
     {
         this.bytLocation = bytLocation;
-        this.bytX = bytX;
-        this.bytY = bytY;
+        this.shrX = shrX;
+        this.shrY = shrY;
     }
 }
     

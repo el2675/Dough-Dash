@@ -17,8 +17,8 @@ public class Location
     
     String strName;
     ArrayList<Connection> connectedLocations;
-    byte bytXCoordinate;
-    byte bytYCoordinate;
+    short shrXCoordinate;
+    short shrYCoordinate;
     
     private String strAddress;
     
