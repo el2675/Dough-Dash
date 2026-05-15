@@ -62,13 +62,13 @@ public class Map
             location.shrYCoordinate = shrY;
     
             //move next location over
-            shrX += 150;
+            shrX += 200;
     
             //if x gets too large go to next row
             if(shrX > 1000)
             {
-                shrX = 100;
-                shrY += 150;
+                shrX = 150;
+                shrY += 200;
             }
         }
     }

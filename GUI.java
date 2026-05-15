@@ -101,7 +101,7 @@ public class GUI extends JFrame
     //create a method to make a player icon
     public void createPlayer(){
         //import the image into an icon
-        ImageIcon icon = new ImageIcon("C:/Users/hotdo/Downloads/pizzadelivery.jpg");
+        ImageIcon icon = new ImageIcon("D:/Ellen/GroupProject/pizzadelivery.jpg");
 
         //extract the image
         Image img = icon.getImage();
@@ -114,7 +114,7 @@ public class GUI extends JFrame
         
         //set the instance variables for the player icon
         this.playerIcon = new JLabel(scaledIcon);
-        this.playerIcon.setBounds(500, 500, 70, 70);
+        this.playerIcon.setBounds(100, 100, 70, 70);
         this.playerIcon.setOpaque(false);
         
         //add the player icon to the frame
@@ -135,7 +135,7 @@ public class GUI extends JFrame
             JButton btn;
             
             //create icon for store and house
-            ImageIcon icon = new ImageIcon("C:/Users/hotdo/Downloads/house.png");
+            ImageIcon icon = new ImageIcon("D:/Ellen/GroupProject/house.jpg");
             
             //extract the image
             Image img = icon.getImage();
