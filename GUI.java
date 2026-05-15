@@ -101,7 +101,7 @@ public class GUI extends JFrame
     //create a method to make a player icon
     public void createPlayer(){
         //import the image into an icon
-        ImageIcon icon = new ImageIcon("D:/Ellen/GroupProject/pizzadelivery.jpg");
+        ImageIcon icon = new ImageIcon("D:/Ellen/GroupProject/playericon.png");
 
         //extract the image
         Image img = icon.getImage();
@@ -135,7 +135,7 @@ public class GUI extends JFrame
             JButton btn;
             
             //create icon for store and house
-            ImageIcon icon = new ImageIcon("D:/Ellen/GroupProject/house.jpg");
+            ImageIcon icon = new ImageIcon("D:/Ellen/GroupProject/house.png");
             
             //extract the image
             Image img = icon.getImage();
@@ -149,9 +149,17 @@ public class GUI extends JFrame
             //create button
             if(location instanceof House){
                 btn = new JButton(location.strName, houseIcon);
+                
+                //set button background to transparent
+                btn.setContentAreaFilled(false);
+                btn.setOpaque(false);
+                btn.setBorderPainted(false);
             }
             else{
                 btn = new JButton(location.strName);
+                
+                //set store background
+                btn.setBackground(Color.WHITE);
             }
             
             //declare coordinate variables to hold the position on the current location
@@ -170,8 +178,6 @@ public class GUI extends JFrame
                 }
             });
             
-            //set button background
-            btn.setBackground(Color.WHITE);
             
             //add buttons to the layered pane
             this.getLayeredPane().add(btn, JLayeredPane.PALETTE_LAYER);
