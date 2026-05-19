@@ -63,7 +63,7 @@ public class GUI extends JFrame
         
         
         //create the buttons
-        createButtons(map, player, driver, delivered);
+        createButtons(map, player, driver, delivered, score);
         
         
         //create the player icon
@@ -77,15 +77,11 @@ public class GUI extends JFrame
     }
     
     //create method for action listener
-    public void onClick(Location location, Player player, short x, short y, JButton btn, Map map, Driver driver, Color delivered){
-        //check if the house was waiting for order
-        
-        
-        //check the player's current location
-        
-        
+    public void onClick(Location location, Player player, short x, short y, JButton btn, Map map, Driver driver, Color delivered, JLabel score){
         //move player to the location if the current location is connected to the destination
         driver.move(location, player, map);
+        
+        
         
         //find coordinates of the player
         short shrX = player.shrX;
@@ -98,6 +94,10 @@ public class GUI extends JFrame
         if (location instanceof House){
             ((House)location).setWait();
         }
+        
+        //update the score
+        score.setText("Score: "+ Short.toString(player.shrScore));
+        
         
         //change to display that house was visited
         if (player.shrX == location.shrXCoordinate && player.shrY == location.shrYCoordinate){
@@ -134,7 +134,7 @@ public class GUI extends JFrame
     
     
     //create method to make buttons
-    public void createButtons(Map map, Player player, Driver driver, Color delivered){
+    public void createButtons(Map map, Player player, Driver driver, Color delivered, JLabel score){
         //create a button for each location
         for(byte i = 0; i < map.numLocations(); i++){
                    
@@ -177,11 +177,12 @@ public class GUI extends JFrame
             short x = location.shrXCoordinate;
             short y = location.shrYCoordinate;
             
-            //create a label for the houses and add to screen
+            //create a label for the locations and add to screen
             JLabel buttonLabel = new JLabel(location.strName);
-            buttonLabel.setBounds((x+30), (y-15), 30, 20);
+            buttonLabel.setBounds((x+30), (y-15), 50, 20);
             this.getLayeredPane().add(buttonLabel, JLayeredPane.MODAL_LAYER);
-
+            
+            
             
             //set button position and size on map
             btn.setBounds(x, y, 80, 80);
@@ -191,7 +192,7 @@ public class GUI extends JFrame
                 @Override
                 public void actionPerformed(ActionEvent e){
                     //call on-click method
-                    onClick(location, player, (short)(x + 5), (short)(y + 5), btn, map, driver, delivered);
+                    onClick(location, player, (short)(x + 5), (short)(y + 5), btn, map, driver, delivered, score);
                 }
             });
             
