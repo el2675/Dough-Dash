@@ -15,5 +15,15 @@ import java.awt.event.*;
 
 public class Animation extends JPanel
 {
+    //instance variables
+    short x, y, destX, destY;
     
+    //constructor
+    Animation(short x, short y, short destX, short destY){
+        //set the variables
+        this.x = x;
+        this.y = y;
+        this.destX = destX;
+        this.destY = destY;
+    }
 }
