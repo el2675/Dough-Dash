@@ -15,4 +15,5 @@ import java.awt.event.*;
 
 public class Animation extends JPanel
 {
+    
 }

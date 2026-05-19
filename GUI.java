@@ -152,7 +152,8 @@ public class GUI extends JFrame
         
             //scale the image
             Image scaledImg = img.getScaledInstance(80, 80, Image.SCALE_SMOOTH);
-
+            
+            
             //create a new icon for the scaled image
             ImageIcon houseIcon = new ImageIcon(scaledImg);
             
@@ -175,6 +176,12 @@ public class GUI extends JFrame
             //declare coordinate variables to hold the position on the current location
             short x = location.shrXCoordinate;
             short y = location.shrYCoordinate;
+            
+            //create a label for the houses and add to screen
+            JLabel buttonLabel = new JLabel(location.strName);
+            buttonLabel.setBounds((x+30), (y-15), 30, 20);
+            this.getLayeredPane().add(buttonLabel, JLayeredPane.MODAL_LAYER);
+
             
             //set button position and size on map
             btn.setBounds(x, y, 80, 80);

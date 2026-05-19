@@ -12,13 +12,13 @@ import java.awt.event.*;
 public class Timer extends Object
 {
     //create instance variables
-    short shrDelay;
+    int intDelay;
     ActionListener action;
     
     // create constructor
     Timer(){
-        //set a delay for each second
-        int intDelay = 1000;
+        //set a delay for 200 milliseconds
+        int intDelay = 200;
         
         
     }
