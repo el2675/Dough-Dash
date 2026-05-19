@@ -69,7 +69,6 @@ public class GUI extends JFrame
         //create the player icon
         createPlayer();
         
-    
 
         //set visibility
         this.setVisible(true);
@@ -87,7 +86,13 @@ public class GUI extends JFrame
         
         //move player to the location if the current location is connected to the destination
         driver.move(location, player, map);
-        this.playerIcon.setLocation(x, y);
+        
+        //find coordinates of the player
+        short shrX = player.shrX;
+        short shrY = player.shrY;
+        
+        //move the player icon to the same location as the player
+        this.playerIcon.setLocation(shrX, shrY);
         
         //update the waiting for order variable
         if (location instanceof House){
@@ -97,6 +102,7 @@ public class GUI extends JFrame
         //change to display that house was visited
         if (player.shrX == location.shrXCoordinate && player.shrY == location.shrYCoordinate){
             //set the background color
+            btn.setContentAreaFilled(true);
             btn.setBackground(delivered);
         }
         
@@ -105,7 +111,7 @@ public class GUI extends JFrame
     //create a method to make a player icon
     public void createPlayer(){
         //import the image into an icon
-        ImageIcon icon = new ImageIcon("D:/Ellen/GroupProject/playericon.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Images/playericon.png"));
 
         //extract the image
         Image img = icon.getImage();
@@ -139,7 +145,7 @@ public class GUI extends JFrame
             JButton btn;
             
             //create icon for store and house
-            ImageIcon icon = new ImageIcon("D:/Ellen/GroupProject/house.png");
+            ImageIcon icon = new ImageIcon(getClass().getResource("/Images/house.png"));
             
             //extract the image
             Image img = icon.getImage();
