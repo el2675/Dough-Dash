@@ -74,7 +74,7 @@ public class Driver
         player.move(clickedLocation.bytIndex, clickedLocation.shrXCoordinate, clickedLocation.shrYCoordinate);
         
         //debug print
-        System.out.println(bytIndexConnected);
+        //System.out.println(bytIndexConnected);
         
         //update player score
         player.shrScore += playerLocation.connectedLocations.get(bytIndexConnected).bytTravelTime;
