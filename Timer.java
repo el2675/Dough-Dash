@@ -16,10 +16,10 @@ public class Timer extends Object
     ActionListener action;
     
     // create constructor
-    Timer(){
+    Timer(ActionListener a){
         //set a delay for 200 milliseconds
-        int intDelay = 200;
-        
+        this.intDelay = 200;
+        this.action = a;
         
     }
 }

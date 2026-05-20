@@ -10,6 +10,9 @@
 //import java swing for GUI
 import javax.swing.*;
 
+//import java awt font for custom font
+import java.awt.Font;
+
 //import java awt for graphics
 import java.awt.*;
 
@@ -52,8 +55,20 @@ public class LineDrawing extends JPanel
                 Location destination = map.getLocation(bytDestination);
                 
                 //draw a line betwen the buttons
+                g.setColor(Color.BLACK);
                 g.drawLine(currentLocation.shrXCoordinate + 25, currentLocation.shrYCoordinate + 25,
                 destination.shrXCoordinate + 25, destination.shrYCoordinate + 25);
+                
+                
+                //find point between the two locations
+                short midX = (short)(((currentLocation.shrXCoordinate + 25) + (destination.shrXCoordinate + 25))/2);
+                short midY = (short)(((currentLocation.shrYCoordinate + 25) + (destination.shrYCoordinate + 25))/2);
+                
+                //draw the travel time between locations with a different color and font
+                Font font = new Font("Ariel", Font.BOLD, 20);
+                g.setFont(font);
+                g.setColor(Color.MAGENTA);
+                g.drawString(Byte.toString(currentLocation.connectedLocations.get(j).bytTravelTime), midX, midY);
 
             }
         }
