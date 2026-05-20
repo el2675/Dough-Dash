@@ -67,7 +67,7 @@ public class GUI extends JFrame
         
         
         //create the player icon
-        createPlayer();
+        createPlayer(player);
         
 
         //set visibility
@@ -113,7 +113,7 @@ public class GUI extends JFrame
     }
     
     //create a method to make a player icon
-    public void createPlayer(){
+    public void createPlayer(Player player){
         //import the image into an icon
         ImageIcon icon = new ImageIcon(getClass().getResource("/Images/playericon.png"));
 
@@ -128,7 +128,7 @@ public class GUI extends JFrame
         
         //set the instance variables for the player icon
         this.playerIcon = new JLabel(scaledIcon);
-        this.playerIcon.setBounds(100, 100, 70, 70);
+        this.playerIcon.setBounds(100, 100, player.shrX, player.shrY);
         this.playerIcon.setOpaque(false);
         
         //add the player icon to the frame
