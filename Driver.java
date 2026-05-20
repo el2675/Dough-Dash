@@ -23,14 +23,24 @@ public class Driver
     
     //create a method to run the main logic of the game
     public void run(){
+        //create constants to increase
+        //the code's clearity
+        final byte NUM_LOCATIONS = 12;
+        final byte NUM_DELIVERIES = 3;
+        
         //create a map with twelve locations
-        Map map = new Map((byte)12);
+        Map map = new Map(NUM_LOCATIONS);
         
         //create player at the store with 3 deliveries
-        Player player = new Player(map.getLocation((byte)0).shrXCoordinate, map.getLocation((byte)0).shrYCoordinate, (byte)3, (byte)0);
+        //note that the store will always be at index 0
+        //and that the player always spawns at the store
+        Player player = new Player(map.getLocation((byte)0).shrXCoordinate, map.getLocation((byte)0).shrYCoordinate, NUM_DELIVERIES, (byte)0);
         
         //create the general user interface (GUI)
         GUI gui = new GUI(map, this, player);
+        
+        //display pop-up window to give player instructions
+        JOptionPane.showMessageDialog(null, "Welcome to Dough Dash! Your objective is to deliver 3 pizzas to three houses marked with red by moving to the houses, and then return to the store.\n You can try to minimize your time and score for an extra challenge. To move your character click on a location connected to your character by a line.");
     }
     
     //handles button clicks, this usually results in a move
