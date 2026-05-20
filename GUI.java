@@ -86,6 +86,10 @@ public class GUI extends JFrame
         //find coordinates of the player
         short shrX = player.shrX;
         short shrY = player.shrY;
+
+        //move the player icon to the same location as the player
+        // this.playerIcon.setLocation(shrX, shrY);
+        Animation a = new Animation(this.playerIcon, location);
         
         //move the player icon to the same location as the player
         this.playerIcon.setLocation(shrX, shrY);
