@@ -20,7 +20,7 @@ public class Animation extends JPanel
     byte bytFrames;
     
     Animation(JLabel player, Location clicked){
-        this.bytFrames = 60;
+        this.bytFrames = 20;
         
         //set instance variables
         this.shrX = (short)player.getX();

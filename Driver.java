@@ -9,6 +9,9 @@
 //import JOptionPane for user input
 import javax.swing.JOptionPane;
 
+//import JLabel for animation
+import javax.swing.JLabel;
+
 public class Driver
 {
     //declare instance variables to store the game time
@@ -34,7 +37,7 @@ public class Driver
     }
     
     //handles button clicks, this usually results in a move
-    public void move(Location clickedLocation, Player player, Map map){
+    public void move(Location clickedLocation, Player player, Map map, JLabel playerIcon){
         //checking if the clicked location is connected
         //to the player's location
         
@@ -72,6 +75,9 @@ public class Driver
         
         //move player
         player.move(clickedLocation.bytIndex, clickedLocation.shrXCoordinate, clickedLocation.shrYCoordinate);
+        
+        //move player icon
+        Animation a = new Animation(playerIcon, clickedLocation);
         
         //debug print
         //System.out.println(bytIndexConnected);

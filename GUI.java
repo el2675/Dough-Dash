@@ -38,12 +38,12 @@ public class GUI extends JFrame
         this.setLayout(null);
         
         
-        //create a new custom colour
-        Color delivered = new Color(213, 255, 171);
+        //create new custom colours
+        Color colDelivered = new Color(213, 255, 171);
+        Color colWaiting = new Color(255, 81, 23, 127);
         
         //create layered pane to layer the components properly
         JLayeredPane layers = this.getLayeredPane();
-        
         
         
         //create and add label for player score 
@@ -61,9 +61,11 @@ public class GUI extends JFrame
         //add the lines to a bottom layer
         layers.add(lines, JLayeredPane.DEFAULT_LAYER);
         
+        //create the timer
+        timer();
         
         //create the buttons
-        createButtons(map, player, driver, delivered, score);
+        createButtons(map, player, driver, colDelivered, score, colWaiting);
         
         
         //create the player icon
@@ -76,10 +78,38 @@ public class GUI extends JFrame
         this.repaint();
     }
     
-    //create method for action listener
+    
+    //create a method for a timer to keep track of the game time
+    public void timer(){
+        //create a variable to track time
+        int intTime = 0;
+        
+        //create a jlabel for the time
+        JLabel time = new JLabel("Time: " + Integer.toString(intTime));
+        
+        //set bounds for the jlabel
+        time.setBounds(20, 20, 1000, 50);
+        
+        //add the JLabel to the screen
+        this.getLayeredPane().add(time, JLayeredPane.MODAL_LAYER);   
+        
+        //create a timer
+        Timer gameTime = new Timer(1000, new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                //set timer to update the timer label every second
+                time.setText("Time: " + Integer.toString(intTime+1));
+            }
+        });
+        
+        //start the timer
+        gameTime.start();
+    }
+    
+    //create a method for action listener
     public void onClick(Location location, Player player, short x, short y, JButton btn, Map map, Driver driver, Color delivered, JLabel score){
         //move player to the location if the current location is connected to the destination
-        driver.move(location, player, map);
+        driver.move(location, player, map, this.playerIcon);
         
         
         
@@ -87,9 +117,9 @@ public class GUI extends JFrame
         short shrX = player.shrX;
         short shrY = player.shrY;
 
-        //move the player icon to the same location as the player
-        // this.playerIcon.setLocation(shrX, shrY);
-        Animation a = new Animation(this.playerIcon, location);
+        // //move the player icon to the same location as the player
+        // // this.playerIcon.setLocation(shrX, shrY);
+        // Animation a = new Animation(this.playerIcon, location);
         
         //move the player icon to the same location as the player
         this.playerIcon.setLocation(shrX, shrY);
@@ -105,9 +135,11 @@ public class GUI extends JFrame
         
         //change to display that house was visited
         if (player.shrX == location.shrXCoordinate && player.shrY == location.shrYCoordinate){
-            //set the background color
-            btn.setContentAreaFilled(true);
-            btn.setBackground(delivered);
+            if (location instanceof House){
+                //set the background color
+                // btn.setContentAreaFilled(true);
+                btn.setBackground(delivered);
+            }
         }
         
     }
@@ -138,7 +170,7 @@ public class GUI extends JFrame
     
     
     //create method to make buttons
-    public void createButtons(Map map, Player player, Driver driver, Color delivered, JLabel score){
+    public void createButtons(Map map, Player player, Driver driver, Color colDelivered, JLabel score, Color colWaiting){
         //create a button for each location
         for(byte i = 0; i < map.numLocations(); i++){
                    
@@ -165,10 +197,13 @@ public class GUI extends JFrame
             if(location instanceof House){
                 btn = new JButton(location.strName, houseIcon);
                 
+                //set button background to red to show that the house requires delivery
+                btn.setBackground(colWaiting);
+                
                 //set button background to transparent
-                btn.setContentAreaFilled(false);
-                btn.setOpaque(false);
-                btn.setBorderPainted(false);
+                // btn.setContentAreaFilled(false);
+                // btn.setOpaque(false);
+                // btn.setBorderPainted(false);
             }
             else{
                 btn = new JButton(location.strName);
@@ -196,7 +231,7 @@ public class GUI extends JFrame
                 @Override
                 public void actionPerformed(ActionEvent e){
                     //call on-click method
-                    onClick(location, player, (short)(x + 5), (short)(y + 5), btn, map, driver, delivered, score);
+                    onClick(location, player, (short)(x + 5), (short)(y + 5), btn, map, driver, colDelivered, score);
                 }
             });
             
