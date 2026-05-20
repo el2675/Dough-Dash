@@ -160,7 +160,7 @@ public class GUI extends JFrame
         
         //set the instance variables for the player icon
         this.playerIcon = new JLabel(scaledIcon);
-        this.playerIcon.setBounds(100, 100, player.shrX, player.shrY);
+        this.playerIcon.setBounds(player.shrX, player.shrY, 70, 70);
         this.playerIcon.setOpaque(false);
         
         //add the player icon to the frame
