@@ -15,6 +15,8 @@ import java.awt.event.*;
 //import java awt image for icons
 import java.awt.Image;
 
+//import java awt font for custom fonts
+
 //import java awt
 import java.awt.*;
 
@@ -41,6 +43,8 @@ public class GUI extends JFrame
         //create new custom colours
         Color colDelivered = new Color(213, 255, 171);
         Color colWaiting = new Color(255, 81, 23, 127);
+        
+        //create custom font
         
         //create layered pane to layer the components properly
         JLayeredPane layers = this.getLayeredPane();
@@ -81,11 +85,8 @@ public class GUI extends JFrame
     
     //create a method for a timer to keep track of the game time
     public void timer(){
-        //create a variable to track time
-        int intTime = 0;
-        
         //create a jlabel for the time
-        JLabel time = new JLabel("Time: " + Integer.toString(intTime));
+        JLabel time = new JLabel("Time: " + Integer.toString(0));
         
         //set bounds for the jlabel
         time.setBounds(20, 20, 1000, 50);
@@ -95,10 +96,18 @@ public class GUI extends JFrame
         
         //create a timer
         Timer gameTime = new Timer(1000, new ActionListener(){
+            
+            //create a variable to keep track of time
+            int intTime = 0;
+            
+            //action performer
             @Override
             public void actionPerformed(ActionEvent e){
+                //increase the time
+                intTime++;
+                
                 //set timer to update the timer label every second
-                time.setText("Time: " + Integer.toString(intTime+1));
+                time.setText("Time: " + Integer.toString(intTime));
             }
         });
         
@@ -111,8 +120,6 @@ public class GUI extends JFrame
         //move player to the location if the current location is connected to the destination
         driver.move(location, player, map, this.playerIcon);
         
-        
-        
         //find coordinates of the player
         short shrX = player.shrX;
         short shrY = player.shrY;
@@ -122,7 +129,7 @@ public class GUI extends JFrame
         // Animation a = new Animation(this.playerIcon, location);
         
         //move the player icon to the same location as the player
-        this.playerIcon.setLocation(shrX, shrY);
+        // this.playerIcon.setLocation(shrX, shrY);
         
         //update the waiting for order variable
         if (location instanceof House){
@@ -139,6 +146,7 @@ public class GUI extends JFrame
                 //set the background color
                 // btn.setContentAreaFilled(true);
                 btn.setBackground(delivered);
+                btn.setBorderPainted(false);
             }
         }
         
@@ -197,13 +205,23 @@ public class GUI extends JFrame
             if(location instanceof House){
                 btn = new JButton(location.strName, houseIcon);
                 
-                //set button background to red to show that the house requires delivery
-                btn.setBackground(colWaiting);
+                //change location to a House class
+                House house = (House)location;
                 
-                //set button background to transparent
-                // btn.setContentAreaFilled(false);
-                // btn.setOpaque(false);
-                // btn.setBorderPainted(false);
+                //if statement to check if house is waiting for delivery, and change the color to 
+                //reflect this
+                if(house.bolWaiting){
+                    //set button background to red to show that the house requires delivery
+                    btn.setBackground(Color.RED);
+                    btn.setBorderPainted(false);
+                }
+                else{
+                    //set button background to transparent
+                    btn.setContentAreaFilled(false);
+                    btn.setOpaque(false);
+                    btn.setBorderPainted(false);
+                }
+                
             }
             else{
                 btn = new JButton(location.strName);
