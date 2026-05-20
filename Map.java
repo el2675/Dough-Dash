@@ -50,54 +50,54 @@ public class Map
     //This method will iterate through locations and assign each location x and y coordinates
     public void placeLocations()
     {
-         //Store
+        //Store
         locations.get(0).shrXCoordinate = 550;
         locations.get(0).shrYCoordinate = 550;
     
         //Housesa through k
         //Assign x and y coordinates to house A
         locations.get(1).shrXCoordinate = 400;
-        locations.get(1).shrYCoordinate = 475;
+        locations.get(1).shrYCoordinate = 450;
         
         //Assign x and y coordinates to house B
         locations.get(2).shrXCoordinate = 300;
-        locations.get(2).shrYCoordinate = 300;
+        locations.get(2).shrYCoordinate = 275;
     
         //Assign x and y coordinates to house C
         locations.get(3).shrXCoordinate = 265;
-        locations.get(3).shrYCoordinate = 175;
+        locations.get(3).shrYCoordinate = 150;
     
         //Assign x and y coordinates to house D
         locations.get(4).shrXCoordinate = 370;
-        locations.get(4).shrYCoordinate = 165;
+        locations.get(4).shrYCoordinate = 140;
     
         //Assign x and y coordinates to house E
         locations.get(5).shrXCoordinate = 425;
-        locations.get(5).shrYCoordinate = 290;
+        locations.get(5).shrYCoordinate = 265;
     
         //Assign x and y coordinates to house F
         locations.get(6).shrXCoordinate = 465;
-        locations.get(6).shrYCoordinate = 75;
+        locations.get(6).shrYCoordinate = 50;
     
         //Assign x and y coordinates to house G
         locations.get(7).shrXCoordinate = 560;
-        locations.get(7).shrYCoordinate = 175;
+        locations.get(7).shrYCoordinate = 150;
         
         //Assign x and y coordinates to house H
         locations.get(8).shrXCoordinate = 700;
-        locations.get(8).shrYCoordinate = 160;
+        locations.get(8).shrYCoordinate = 145;
     
         //Assign x and y coordinates to house I
         locations.get(9).shrXCoordinate = 825;
-        locations.get(9).shrYCoordinate = 280;
+        locations.get(9).shrYCoordinate = 255;
     
         //Assign x and y coordinates to house J
         locations.get(10).shrXCoordinate = 590;
-        locations.get(10).shrYCoordinate = 360;
+        locations.get(10).shrYCoordinate = 335;
         
         //Assign x and y coordinates to house K
         locations.get(11).shrXCoordinate = 700;
-        locations.get(11).shrYCoordinate = 450;
+        locations.get(11).shrYCoordinate = 425;
     
 
     }
