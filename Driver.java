@@ -34,6 +34,9 @@ public class Driver
         //create a map with twelve locations
         Map map = new Map(NUM_LOCATIONS);
         
+        //placing locations
+        map.placeLocations();
+        
         //create player at the store with 3 deliveries
         //note that the store will always be at index 0
         //and that the player always spawns at the store
