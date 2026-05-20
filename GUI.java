@@ -15,8 +15,6 @@ import java.awt.event.*;
 //import java awt image for icons
 import java.awt.Image;
 
-//import java awt font for custom fonts
-
 //import java awt
 import java.awt.*;
 
@@ -45,6 +43,7 @@ public class GUI extends JFrame
         Color colWaiting = new Color(255, 81, 23, 127);
         
         //create custom font
+        Font font = new Font("SansSerif", Font.PLAIN, 18);
         
         //create layered pane to layer the components properly
         JLayeredPane layers = this.getLayeredPane();
@@ -52,7 +51,8 @@ public class GUI extends JFrame
         
         //create and add label for player score 
         this.score = new JLabel("Score: "+ Short.toString(player.shrScore));
-        this.score.setBounds(20, 20, 1000, 10);
+        this.score.setFont(font);
+        this.score.setBounds(20, 10, 1000, 20);
         
         //add the score label to the layered pane
         layers.add(score, JLayeredPane.DEFAULT_LAYER);
@@ -66,7 +66,7 @@ public class GUI extends JFrame
         layers.add(lines, JLayeredPane.DEFAULT_LAYER);
         
         //create the timer
-        timer();
+        timer(font);
         
         //create the buttons
         createButtons(map, player, driver, colDelivered, score, colWaiting);
@@ -80,16 +80,20 @@ public class GUI extends JFrame
         this.setVisible(true);
         this.revalidate();
         this.repaint();
+        
+        //exit program when frame closes
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
     
     //create a method for a timer to keep track of the game time
-    public void timer(){
+    public void timer(Font font){
         //create a jlabel for the time
         JLabel time = new JLabel("Time: " + Integer.toString(0));
+        time.setFont(font);
         
         //set bounds for the jlabel
-        time.setBounds(20, 20, 1000, 50);
+        time.setBounds(20, 10, 1000, 80);
         
         //add the JLabel to the screen
         this.getLayeredPane().add(time, JLayeredPane.MODAL_LAYER);   
